@@ -6,12 +6,13 @@
 
 ### Simple and short excerices to get familiar with SQL 
 
-  * **SELECT** statement
-    ```sql
-    -- see all customers and their information in the database
-    
-    SELECT * from customer;
-    ```
+  * **SELECT**
+  
+  ```sql
+  -- see all customers and their information in the database
+
+  SELECT * from customer;
+  ```
   * **WHERE**
   
   ```sql
