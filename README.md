@@ -6,8 +6,10 @@
 
 ### Simple and short excerices to get familiar with SQL 
 
-  * **Select** statement
-  * **Where** clause
+  * **SELECT** statement
+  * **WHERE** clause
   * **GROUP BY** and simple aggregations
 
 ## More advanced questions and answers
+
+  * 
