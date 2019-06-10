@@ -8,28 +8,55 @@
 
   * **SELECT** statement
     ```sql
-    -- see all customers in the database
+    -- see all customers and their information in the database
     
     SELECT * from customer;
     ```
-  * **WHERE** clause
+  * **WHERE**
   
   ```sql
+  -- see all the stores located in the United Kingdom and their information
   
+  SELECT * from store where country = "United Kingdom";
   ```
   
   * **JOINS**
   
   ```sql
+  -- see all the transactions of customer 5 (Nick Young)
   
+  SELECT t.* 
+  FROM customer c 
+  INNER JOIN transaction t
+  ON c.customerId = t.customerId
+  WHERE c.customerId = 5;
   ```
   
-  * **GROUP BY** and simple aggregations
+  * **GROUP BY**
   
   ```sql
+  -- see how much every customer has spent
   
+  SELECT c.customerId, c.firstName, c.lastName, ROUND(SUM(t.amount),2) AS totalAmountSpent
+  FROM customer c
+  LEFT JOIN transaction t
+  ON c.customerId = t.customerId
+  GROUP BY c.customerId, c.firstName, c.lastName; 
   ```
   
+  * **HAVING**
+  
+  ```sql
+  -- see ony the name of those that have spent more than 150 ordered by how much they've spent 
+  
+  SELECT c.customerId, c.firstName, c.lastName, ROUND(SUM(t.amount),2) AS totalAmountSpent
+  FROM customer c
+  LEFT JOIN transaction t
+  ON c.customerId = t.customerId
+  GROUP BY 1,2,3
+  HAVING SUM(t.amount) > 150.0
+  ORDER BY 4 DESC;
+  ```
 
 ## More advanced questions and answers
 
