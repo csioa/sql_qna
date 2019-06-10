@@ -8,6 +8,7 @@
 
   * **SELECT** statement
   * **WHERE** clause
+  * **JOINS**
   * **GROUP BY** and simple aggregations
 
 ## More advanced questions and answers
