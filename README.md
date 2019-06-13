@@ -91,7 +91,21 @@
   
   #### First transaction ever of each customer
   ```sql
-  
+  SELECT 
+  FROM_UNIXTIME(t.transactionTimestamp) as timestamp,
+  c.firstName, 
+  c.lastName,
+  t.amount
+  FROM 
+  (SELECT 
+    distinct customerId,
+    FIRST_VALUE(transactionId) OVER (PARTITION BY customerID ORDER BY transactionTimestamp) AS firstTransactionId
+  FROM transaction) f
+  LEFT JOIN transaction t
+  ON t.transactionId = f.firstTransactionId
+  LEFT JOIN customer c
+  ON c.customerId = f.customerId
+  ORDER BY 1
   ```
   
   #### The total amount spent for each customer if they get a 5% discount for purchases over 150.0 in the UK and 12% for other countries
