@@ -65,7 +65,9 @@
   ```sql
   SELECT FROM_UNIXTIME(r.transactionTimestamp, '%Y-%m-%d') as date, s.storeId, s.city, s.country, r.amount  
   FROM (
-	 SELECT  *, ROW_NUMBER() OVER(PARTITION BY FROM_UNIXTIME(transactionTimestamp, '%Y-%m-%d') ORDER BY amount) row_num 
+	 SELECT  
+	 *,
+	 ROW_NUMBER() OVER(PARTITION BY FROM_UNIXTIME(transactionTimestamp, '%Y-%m-%d') ORDER BY amount) row_num 
 	 FROM transaction t) r 
   LEFT JOIN store s
   ON s.storeId = r.storeId
