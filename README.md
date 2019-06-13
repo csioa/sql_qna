@@ -90,6 +90,9 @@
   ```
   
   #### Average time between two consecutive transactions for each customers
+  <details>
+  <summary>Click to see the solution</summary>
+  
   ```sql
   SELECT a.customerId, ROUND(AVG(a.td),2) AS average_difference_hours 
   FROM (
@@ -103,7 +106,12 @@
   GROUP BY 1
   ```
   
+  </details>
+  
   #### First transaction ever of each customer
+  <details>
+  <summary>Click to see the solution</summary>
+ 
   ```sql
   SELECT 
   FROM_UNIXTIME(t.transactionTimestamp) as timestamp,
@@ -121,6 +129,8 @@
   ON c.customerId = f.customerId
   ORDER BY 1
   ```
+  
+  </details>
   
   #### The total amount spent for each customer if they get a 5% discount for purchases over 150.0 in the UK and 12% for other countries
   ```sql
