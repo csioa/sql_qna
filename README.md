@@ -9,10 +9,10 @@
   * **SELECT**
   <details>
   <summary>Click to see the solution</summary>
-  ```sql
-  -- see all customers and their information in the database
+   ```sql
+   -- see all customers and their information in the database
 
-  SELECT * from customer;
+   SELECT * from customer;
   </details>
   ```
   * **WHERE**
