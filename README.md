@@ -84,10 +84,21 @@
   
   </details>
   
-  #### The total amount spent for those that have been shopping outside the United Kingdom between 12.00 and 18.00
-  ```sql
+  #### The total amount spent per country for those that have been shopping outside the United Kingdom between 12.00 and 18.00
+  <details>
+  <summary>Click to see the solution</summary>
   
+  ```sql
+  SELECT s.country, ROUND(SUM(amount),2) as total_amount 
+  FROM transaction t 
+  LEFT JOIN store s 
+  ON t.storeId = s.storeId 
+  WHERE s.country <> "United Kingdom" 
+  AND TIME(from_unixtime(t.transactionTimestamp)) BETWEEN TIME("12:00:00") AND TIME("18:00:00")
+  GROUP BY 1;
   ```
+  
+  </details>
   
   #### Average time between two consecutive transactions for each customers
   <details>
