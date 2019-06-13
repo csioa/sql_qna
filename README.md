@@ -2,9 +2,9 @@
 
 ## Introduction
 
-  * Setting up the schema and the tables 
+  * Setting up the schema and the tables (schema.sql)
 
-### Simple and short excerices to get familiar with SQL 
+### Getting familiar with SQL 
 
   * **SELECT**
  
