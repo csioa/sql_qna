@@ -58,6 +58,36 @@
   HAVING SUM(t.amount) > 150.0
   ORDER BY 4 DESC;
   ```
+  
+## Getting familiar with the example tables
+
+#### Customer table
+
+| customerId | firstName | lastName  |
+|------------|-----------|-----------|
+| 1          | Mary      | Jones     |
+| 2          | Paul      | Griffins  |
+| 3          | Joel      | Dixon     |
+| 4          | Mark      | Gallagher |
+| 5          | Nick      | Young     |
+| 6          | Helen     | Gray      |
+| 7          | Natasha   | May       |
+| 8          | Nicole    | White     |
+| 9          | Matthew   | Brown     |
+| 10         | Barry     | Plant     |
+
+#### Store table
+
+| storeId | city       | country        |
+|---------|------------|----------------|
+| 1       | London     | United Kingdom |
+| 2       | Leeds      | United Kingdom |
+| 3       | Dublin     | Ireland        |
+| 4       | Copenhagen | Denmark        |
+| 5       | Stockholm  | Sweden         |
+
+#### Transaction table
+
 
 ## More advanced questions and answers
 
