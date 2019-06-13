@@ -144,9 +144,24 @@
   </details>
   
   #### The total amount spent for each customer if they get a 5% discount for purchases over 150.0 in the UK and 12% for other countries
-  ```sql
+  <details>
+  <summary>Click to see the solution</summary>
   
+  ```sql
+  SELECT t.customerId, c.firstName, c.lastName,
+  ROUND(SUM(CASE 
+    WHEN s.country = "United Kingdom" AND t.amount > 150.0 THEN t.amount * 0.95
+    WHEN s.country <> "United Kingdom" AND t.amount > 150.0 THEN t.amount * 0.88
+    ELSE t.amount
+  END),2) as total_amount_with_discount
+  FROM transaction t
+  LEFT JOIN store s
+  ON t.storeId = s.storeId
+  LEFT JOIN customer c
+  ON t.customerId = c.customerId
+  GROUP BY 1,2,3;
   ```
+  </details> 
   
   #### Given that for UK there are 5% and 7% discounts for below and over 150.0 purchases respectively and 8% and 10% for other countries, what are the top 2 counries on discounts for customers
   ```sql
