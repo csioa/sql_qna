@@ -63,6 +63,9 @@
 
 ### Customer table
 
+<details>
+<summary>Click to see the whole table</summary>
+
 | customerId | firstName | lastName  |
 |------------|-----------|-----------|
 | 1          | Mary      | Jones     |
@@ -76,7 +79,12 @@
 | 9          | Matthew   | Brown     |
 | 10         | Barry     | Plant     |
 
+</details>
+
 ### Store table
+
+<details>
+<summary>Click to see the whole table</summary>
 
 | storeId | city       | country        |
 |---------|------------|----------------|
@@ -86,7 +94,12 @@
 | 4       | Copenhagen | Denmark        |
 | 5       | Stockholm  | Sweden         |
 
+</details>
+
 ### Transaction table
+
+<details>
+<summary>Click to see the whole table</summary>
 
 | transactionId | storeId | customerId | transactionTimestamp | amount |
 |---------------|---------|------------|----------------------|--------|
@@ -120,6 +133,9 @@
 | 28            | 5       | 10         | 1560105198           | 69.99  |
 | 29            | 5       | 10         | 1560192858           | 115.45 |
 
+</details>
+
+---
 
 ## More advanced questions and answers
 
