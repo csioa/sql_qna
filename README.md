@@ -86,7 +86,16 @@
   
   #### Average time between two consecutive transactions for each customers
   ```sql
-  
+  SELECT a.customerId, ROUND(AVG(a.td),2) AS average_difference_hours 
+  FROM (
+    SELECT 
+    customerId, 
+    (transactionTimestamp - LAG(transactionTimestamp) OVER(PARTITION BY customerId ORDER BY transactionTimestamp))/3600 AS td 
+    FROM transaction) a
+  LEFT JOIN customer c
+  ON a.customerId = c.customerId
+  WHERE a.td IS NOT NULL
+  GROUP BY 1
   ```
   
   #### First transaction ever of each customer
