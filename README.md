@@ -13,8 +13,9 @@
    -- see all customers and their information in the database
 
    SELECT * from customer;
+   ```
   </details>
-  ```
+
   * **WHERE**
   
   ```sql
