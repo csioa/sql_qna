@@ -141,7 +141,7 @@
   LEFT JOIN store s
   ON s.storeId = r.storeId
   WHERE r.rn = 1
-  ORDER BY 1
+  ORDER BY 1;
   ```
   
   </details>
@@ -182,7 +182,7 @@
   LEFT JOIN customer c
   ON a.customerId = c.customerId
   WHERE a.td IS NOT NULL
-  GROUP BY 1
+  GROUP BY 1;
   ```
   
   </details>
@@ -217,7 +217,7 @@
   ON t.transactionId = f.ftId
   LEFT JOIN customer c
   ON c.customerId = f.customerId
-  ORDER BY 1
+  ORDER BY 1;
   ```
   
   </details>
