@@ -84,7 +84,7 @@
   
   ```
   
-  #### Average time between two transactions for each customers
+  #### Average time between two consecutive transactions for each customers
   ```sql
   
   ```
