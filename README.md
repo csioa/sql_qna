@@ -7,11 +7,13 @@
 ### Simple and short excerices to get familiar with SQL 
 
   * **SELECT**
-  
+  <details>
+  <summary>Click to see the solution</summary>
   ```sql
   -- see all customers and their information in the database
 
   SELECT * from customer;
+  </details>
   ```
   * **WHERE**
   
