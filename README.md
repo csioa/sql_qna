@@ -120,6 +120,7 @@
 | 28            | 5       | 10         | 1560105198           | 69.99  |
 | 29            | 5       | 10         | 1560192858           | 115.45 |
 
+
 ## More advanced questions and answers
 
   #### For every day, see the store (city, country) where the biggest transaction occured
@@ -161,6 +162,12 @@
   
   </details>
   
+| country | total_amount |
+|---------|--------------|
+| Ireland | 102.54       |
+| Denmark | 194.99       |
+| Sweden  | 389.03       |
+  
   #### Average time between two consecutive transactions for each customers
   <details>
   <summary>Click to see the solution</summary>
@@ -179,6 +186,17 @@
   ```
   
   </details>
+  
+| customerId | average_difference_hours |
+|------------|--------------------------|
+| 1          | 11.17                    |
+| 2          | 164.00                   |
+| 3          | 13.86                    |
+| 4          | 35.80                    |
+| 5          | 43.18                    |
+| 7          | 38.73                    |
+| 8          | 2.92                     |
+| 10         | 25.14                    |
   
   #### First transaction ever of each customer
   <details>
@@ -204,6 +222,19 @@
   
   </details>
   
+| timestamp           | firstName | lastName  | amount |
+|---------------------|-----------|-----------|--------|
+| 2019-06-03 00:44:18 | Paul      | Griffins  | 34.56  |
+| 2019-06-03 13:00:18 | Barry     | Plant     | 160.55 |
+| 2019-06-03 14:43:18 | Mark      | Gallagher | 55.4   |
+| 2019-06-03 23:11:18 | Nick      | Young     | 55.29  |
+| 2019-06-04 23:05:18 | Mary      | Jones     | 123.5  |
+| 2019-06-05 08:10:18 | Natasha   | May       | 100.22 |
+| 2019-06-07 20:01:18 | Joel      | Dixon     | 75.9   |
+| 2019-06-07 21:45:18 | Helen     | Gray      | 15.65  |
+| 2019-06-09 11:00:18 | Nicole    | White     | 67.98  |
+| 2019-06-10 20:45:18 | Matthew   | Brown     | 14.56  |
+  
   #### The total amount spent for each customer if they get a 5% discount for purchases over 150.0 in the UK and 12% for other countries
   <details>
   <summary>Click to see the solution</summary>
@@ -223,6 +254,19 @@
   GROUP BY 1,2,3;
   ```
   </details> 
+  
+| customerId | firstName | lastName  | total_amount_with_discount |
+|------------|-----------|-----------|----------------------------|
+| 1          | Mary      | Jones     | 144.50                     |
+| 2          | Paul      | Griffins  | 122.66                     |
+| 3          | Joel      | Dixon     | 151.58                     |
+| 4          | Mark      | Gallagher | 314.28                     |
+| 5          | Nick      | Young     | 153.19                     |
+| 6          | Helen     | Gray      | 15.65                      |
+| 7          | Natasha   | May       | 238.52                     |
+| 8          | Nicole    | White     | 133.87                     |
+| 9          | Matthew   | Brown     | 14.56                      |
+| 10         | Barry     | Plant     | 685.93                     |
   
   #### Given that for UK there are 5% and 7% discounts for below and over 150.0 purchases respectively and 8% and 10% for other countries, what are the top 2 counries on discounts for customers
   <details>
@@ -244,3 +288,8 @@
   LIMIT 2;
   ```
   </details> 
+  
+| storeId | city       | country | total_discounted_amount |
+|---------|------------|---------|-------------------------|
+| 5       | Stockholm  | Sweden  | 66.23                   |
+| 4       | Copenhagen | Denmark | 25.60                   |
