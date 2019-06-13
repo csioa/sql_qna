@@ -63,15 +63,19 @@
 
   #### For every day, see the store (city, country) where the biggest transaction occured
   ```sql
-  SELECT FROM_UNIXTIME(r.transactionTimestamp, '%Y-%m-%d') as date, s.storeId, s.city, s.country, r.amount  
+  SELECT FROM_UNIXTIME(r.transactionTimestamp, '%Y-%m-%d') as date, 
+  s.storeId, 
+  s.city, 
+  s.country,
+  r.amount  
   FROM (
-	 SELECT  
-	 *,
-	 ROW_NUMBER() OVER(PARTITION BY FROM_UNIXTIME(transactionTimestamp, '%Y-%m-%d') ORDER BY amount) row_num 
-	 FROM transaction t) r 
+     SELECT  
+     *,
+     ROW_NUMBER() OVER(PARTITION BY FROM_UNIXTIME(transactionTimestamp, '%Y-%m-%d') ORDER BY amount) rn 
+     FROM transaction t) r 
   LEFT JOIN store s
   ON s.storeId = r.storeId
-  WHERE r.row_num = 1
+  WHERE r.rn = 1
   ORDER BY 1
   ```
   
