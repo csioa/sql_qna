@@ -99,10 +99,10 @@
   FROM 
   (SELECT 
     distinct customerId,
-    FIRST_VALUE(transactionId) OVER (PARTITION BY customerID ORDER BY transactionTimestamp) AS firstTransactionId
-  FROM transaction) f
+    FIRST_VALUE(transactionId) OVER (PARTITION BY customerID ORDER BY transactionTimestamp) AS ftId
+   FROM transaction) f
   LEFT JOIN transaction t
-  ON t.transactionId = f.firstTransactionId
+  ON t.transactionId = f.ftId
   LEFT JOIN customer c
   ON c.customerId = f.customerId
   ORDER BY 1
