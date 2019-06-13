@@ -164,6 +164,22 @@
   </details> 
   
   #### Given that for UK there are 5% and 7% discounts for below and over 150.0 purchases respectively and 8% and 10% for other countries, what are the top 2 counries on discounts for customers
+  <details>
+  <summary>Click to see the solution</summary>
+ 
   ```sql
-  
+  SELECT s.storeId, s.city, s.country,
+  ROUND(SUM(CASE 
+    WHEN s.country = "United Kingdom" AND t.amount > 150.0 THEN t.amount * 0.07
+    WHEN s.country <> "United Kingdom" AND t.amount > 150.0 THEN t.amount * 0.1
+    WHEN s.country = "United Kingdom" AND t.amount <= 150.0 THEN t.amount * 0.05
+    WHEN s.country <> "United Kingdom" AND t.amount <= 150.0 THEN t.amount * 0.08
+  END),2) as total_discounted_amount
+  FROM transaction t
+  LEFT JOIN store s
+  ON t.storeId = s.storeId
+  GROUP BY 1,2,3
+  ORDER BY 4 DESC
+  LIMIT 2;
   ```
+  </details> 
