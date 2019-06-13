@@ -105,8 +105,8 @@
   c.firstName, 
   c.lastName,
   t.amount
-  FROM 
-  (SELECT 
+  FROM (
+    SELECT 
     distinct customerId,
     FIRST_VALUE(transactionId) OVER (PARTITION BY customerID ORDER BY transactionTimestamp) AS ftId
    FROM transaction) f
