@@ -7,15 +7,12 @@
 ### Simple and short excerices to get familiar with SQL 
 
   * **SELECT**
-  <details>
-  <summary>Click to see the solution</summary>
+ 
    ```sql
    -- see all customers and their information in the database
 
    SELECT * from customer;
    ```
-  </details>
-
   * **WHERE**
   
   ```sql
@@ -65,6 +62,9 @@
 ## More advanced questions and answers
 
   #### For every day, see the store (city, country) where the biggest transaction occured
+  <details>
+  <summary>Click to see the solution</summary>
+  
   ```sql
   SELECT FROM_UNIXTIME(r.transactionTimestamp, '%Y-%m-%d') as date, 
   s.storeId, 
@@ -81,6 +81,8 @@
   WHERE r.rn = 1
   ORDER BY 1
   ```
+  
+  </details>
   
   #### The total amount spent for those that have been shopping outside the United Kingdom between 12.00 and 18.00
   ```sql
